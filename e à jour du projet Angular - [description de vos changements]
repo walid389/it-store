@@ -1,0 +1,212 @@
+[1mdiff --git a/angular.json b/angular.json[m
+[1mindex b40ca30..b32a8e5 100644[m
+[1m--- a/angular.json[m
+[1m+++ b/angular.json[m
+[36m@@ -16,10 +16,7 @@[m
+             "browser": "src/main.ts",[m
+             "tsConfig": "tsconfig.app.json",[m
+             "assets": [[m
+[31m-              {[m
+[31m-                "glob": "**/*",[m
+[31m-                "input": "public"[m
+[31m-              }[m
+[32m+[m[32m              "src/assets", {"glob": "/*", "input":"public"}[m
+             ],[m
+             "styles": [[m
+               "src/styles.css"[m
+[36m@@ -74,11 +71,9 @@[m
+           "options": {[m
+             "tsConfig": "tsconfig.spec.json",[m
+             "assets": [[m
+[31m-              {[m
+[31m-                "glob": "**/*",[m
+[31m-                "input": "public"[m
+[31m-              }[m
+[31m-            ],[m
+[32m+[m[32m  "src/assets",[m
+[32m+[m[32m  {"glob": "/*", "input":"public"}[m
+[32m+[m[32m],[m
+             "styles": [[m
+               "src/styles.css"[m
+             ][m
+[1mdiff --git a/images/2.webp b/images/2.webp[m
+[1mdeleted file mode 100644[m
+[1mindex d3c1367..0000000[m
+Binary files a/images/2.webp and /dev/null differ
+[1mdiff --git a/images/3.webp b/images/3.webp[m
+[1mdeleted file mode 100644[m
+[1mindex b5e5af6..0000000[m
+Binary files a/images/3.webp and /dev/null differ
+[1mdiff --git a/images/4.webp b/images/4.webp[m
+[1mdeleted file mode 100644[m
+[1mindex 5b5686b..0000000[m
+Binary files a/images/4.webp and /dev/null differ
+[1mdiff --git a/src/app/app.routes.ts b/src/app/app.routes.ts[m
+[1mindex 7346e96..00b635a 100644[m
+[1m--- a/src/app/app.routes.ts[m
+[1m+++ b/src/app/app.routes.ts[m
+[36m@@ -13,4 +13,5 @@[m [mexport const routes: Routes = [[m
+     { path: 'smartphone', component: Smartphone },[m
+     { path: 'accessoires', component: Accessoires },[m
+     { path: 'printers', component: Printers },[m
+[32m+[m
+ ];[m
+[1mdiff --git a/src/app/site/accessoires/accessoires.css b/src/app/site/accessoires/accessoires.css[m
+[1mindex e69de29..d3ae92b 100644[m
+[1m--- a/src/app/site/accessoires/accessoires.css[m
+[1m+++ b/src/app/site/accessoires/accessoires.css[m
+[36m@@ -0,0 +1,162 @@[m
+[32m+[m[32m        /* Banner */[m
+[32m+[m[32m        .banner {[m
+[32m+[m[32m            background-image: url('https://via.placeholder.com/1200x400');[m
+[32m+[m[32m            background-size: cover;[m
+[32m+[m[32m            background-position: center;[m
+[32m+[m[32m            height: 400px;[m
+[32m+[m[32m            display: flex;[m
+[32m+[m[32m            align-items: center;[m
+[32m+[m[32m            justify-content: center;[m
+[32m+[m[32m            color: white;[m
+[32m+[m[32m            font-size: 48px;[m
+[32m+[m[32m            font-weight: bold;[m
+[32m+[m[32m            text-shadow: 2px 2px 4px #000;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        /* Section title */[m
+[32m+[m[32m        .section-title {[m
+[32m+[m[32m            font-size: 28px;[m
+[32m+[m[32m            font-weight: bold;[m
+[32m+[m[32m            margin: 30px 0 20px;[m
+[32m+[m[32m            text-align: center;[m
+[32m+[m[32m            color: #333;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        /* Section Produits */[m
+[32m+[m[32m        .products {[m
+[32m+[m[32m            display: flex;[m
+[32m+[m[32m            flex-wrap: wrap;[m
+[32m+[m[32m            justify-content: center;[m
+[32m+[m[32m            padding: 20px;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .product-card {[m
+[32m+[m[32m            border: 1px solid #ccc;[m
+[32m+[m[32m            border-radius: 10px;[m
+[32m+[m[32m            width: 200px;[m
+[32m+[m[32m            margin: 10px;[m
+[32m+[m[32m            text-align: center;[m
+[32m+[m[32m            transition: transform 0.3s;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .product-card:hover {[m
+[32m+[m[32m            transform: scale(1.05);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .product-card img {[m
+[32m+[m[32m            width: 100%;[m
+[32m+[m[32m            border-bottom: 1px solid #ccc;[m
+[32m+[m[32m            border-top-left-radius: 10px;[m
+[32m+[m[32m            border-top-right-radius: 10px;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .product-card h3 {[m
+[32m+[m[32m            margin: 10px 0;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .product-card p {[m
+[32m+[m[32m            color: #04AA6D;[m
+[32m+[m[32m            font-weight: bold;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        /* Footer */[m
+[32m+[m[32m        footer {[m
+[32m+[m[32m            background-color: #333;[m
+[32m+[m[32m            color: #f2f2f2;[m
+[32m+[m[32m            text-align: center;[m
+[32m+[m[32m            padding: 50px;[m
+[32m+[m[32m            margin-top: 20px;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        /* Responsive Produits */[m
+[32m+[m[32m        @media screen and (max-width: 600px) {[m
+[32m+[m[32m            .products {[m
+[32m+[m[32m                flex-direction: column;[m
+[32m+[m[32m                align-items: center;[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        /* Product Page */[m
+[32m+[m[32m        .product-page {[m
+[32m+[m[32m            display: flex;[m
+[32m+[m[32m            gap: 40px;[m
+[32m+[m[32m            padding: 40px;[m
+[32m+[m[32m            font-family: Arial, sans-serif;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .product-image img {[m
+[32m+[m[32m            width: 400px;[m
+[32m+[m[32m            border-radius: 10px;[m
+[32m+[m[32m            border: 1px solid #ddd;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .product-info .title {[m
+[32m+[m[32m            font-size: 28px;[m
+[32m+[m[32m            margin-bottom: 10px;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .reference {[m
+[32m+[m[32m            color: #555;[m
+[32m+[m[32m            margin-bottom: 20px;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .price-box {[m
+[32m+[m[32m            display: flex;[m
+[32m+[m[32m            align-items: center;[m
+[32m+[m[32m            gap: 15px;[m
+[32m+[m[32m            margin-bottom: 20px;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .price {[m
+[32m+[m[32m            font-size: 32px;[m
+[32m+[m[32m            font-weight: bold;[m
+[32m+[m[32m            color: #d00;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .old-price {[m
+[32m+[m[32m            font-size: 18px;[m
+[32m+[m[32m            text-decoration: line-through;[m
+[32m+[m[32m            color: #888;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .description {[m
+[32m+[m[32m            margin-bottom: 20px;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .features {[m
+[32m+[m[32m            list-style: none;[m
+[32m+[m[32m            padding: 0;[m
+[32m+[m[32m            margin-bottom: 30px;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .features li {[m
+[32m+[m[32m            margin-bottom: 8px;[m
+[32m+[m[32m            font-size: 16px;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .btn-buy {[m
+[32m+[m[32m            background-color: #04AA6D;[m
+[32m+[m[32m            color: white;[m
+[32m+[m[32m            border: none;[m
+[32m+[m[32m            padding: 15px 25px;[m
+[32m+[m[32m            font-size: 18px;[m
+[32m+[m[32m            border-radius: 8px;[m
+[32m+[m[32m            cursor: pointer;[m
+[32m+[m[32m            transition: 0.3s;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        .btn-buy:hover {[m
+[32m+[m[32m            background-color: #028a57;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        /* Responsive Product Page */[m
+[32m+[m[32m        @media (max-width: 768px) {[m
+[32m+[m[32

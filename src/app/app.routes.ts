@@ -13,4 +13,5 @@ export const routes: Routes = [
     { path: 'smartphone', component: Smartphone },
     { path: 'accessoires', component: Accessoires },
     { path: 'printers', component: Printers },
+
 ];

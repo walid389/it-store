@@ -1,0 +1,102 @@
+.banner {
+            background-image: url('https://via.placeholder.com/1200x300');
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 6px #000;
+            margin-bottom: 20px;
+        }
+
+/* Titre de section */
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 30px 0 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Conteneur des articles */
+.laptop-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+/* Carte article */
+.laptop-card {
+    width: 240px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.laptop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+}
+
+/* Image */
+.laptop-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Nom produit */
+.laptop-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #111;
+}
+
+/* Spécifications */
+.spec {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Prix */
+.price {
+    font-size: 20px;
+    color: #d00;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Bouton */
+.btn-buy {
+    background: #04AA6D;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.btn-buy:hover {
+    background: #028a57;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .laptop-card {
+        width: 90%;
+    }
+}
